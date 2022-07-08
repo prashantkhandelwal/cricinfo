@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/gocolly/colly/v2"
 )
 
@@ -17,17 +19,12 @@ func main() {
 	t20matchresult := T20MatchResult{}
 	t20matchresult.Download(t20_downloader)
 
-	t20matchresult.ToString()
+	b, err := t20matchresult.Save("D:\\T_20_2008\\1.json", JSON)
+	if err != nil {
+		fmt.Println(err)
+	}
 
-	// c.OnRequest(func(r *colly.Request) {
-	// 	log.Println("visiting", r.URL.String())
-	// })
-
-	// c.OnHTML(".engineTable thead", func(e *colly.HTMLElement) {
-	// 	e.ForEach("th", func(i int, h *colly.HTMLElement) {
-	// 		fmt.Println(h.Text)
-	// 	})
-
-	// })
-
+	if b {
+		fmt.Println("File saved successfully!")
+	}
 }
