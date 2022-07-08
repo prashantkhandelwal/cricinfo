@@ -24,7 +24,7 @@ type T20MatchResult struct {
 var data = []T20MatchResult{}
 var d = T20MatchResult{}
 
-func (t *T20MatchResult) Download(c *colly.Collector) {
+func (t *T20MatchResult) Download(c *colly.Collector, url string) {
 
 	c.OnHTML("#ciHomeContentlhs", func(e *colly.HTMLElement) {
 		gq := e.DOM
@@ -63,7 +63,19 @@ func (t *T20MatchResult) Download(c *colly.Collector) {
 		}
 	})
 
-	c.Visit(T20_URLS["T20_2008_MATCH_RESULTS"])
+	c.Visit(url)
+	c.Wait()
+
+	b, err := t.Save(GetPath(url), JSON)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	if b {
+		fmt.Println("File saved successfully!")
+	}
+
+	data = []T20MatchResult{}
 }
 
 func (t *T20MatchResult) ToString() {
