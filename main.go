@@ -16,6 +16,7 @@ func main() {
 	t20_downloader := c.Clone()
 	t20matchresult := T20MatchResult{}
 
-	t20matchresult.Download(t20_downloader, T20_URLS["T20_2008_MATCHRESULTS"])
-	t20matchresult.Download(t20_downloader, T20_URLS["T20_2009_MATCHRESULTS"])
+	for _, m := range T20_URLS {
+		t20matchresult.DownloadMatchResults(t20_downloader, m)
+	}
 }
