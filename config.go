@@ -4,5 +4,5 @@ type Format string
 
 const (
 	JSON Format = "JSON"
-	CSV  Format = "CSV"
+	//CSV  Format = "CSV"
 )

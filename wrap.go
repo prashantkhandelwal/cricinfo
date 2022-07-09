@@ -54,9 +54,9 @@ func (w *Wrap[T]) Save(path string, format Format) (bool, error) {
 		fmt.Printf("Saving File - %s\n", fname)
 	}
 
-	if format == CSV {
-
-	}
+	// if format == CSV {
+	// 	// TODO Implement CSV file format.
+	// }
 
 	return true, nil
 }

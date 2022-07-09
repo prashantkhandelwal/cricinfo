@@ -32,38 +32,35 @@ func (t *T20MatchResult) DownloadMatchResults(c *colly.Collector, url string) {
 				switch j {
 				case 0:
 					d.TeamA = gq.Find(selector).Children().Eq(j).Text()
-					break
 				case 1:
 					d.TeamB = gq.Find(selector).Children().Eq(j).Text()
-					break
 				case 2:
 					d.Winner = gq.Find(selector).Children().Eq(j).Text()
-					break
 				case 3:
 					d.Margin = gq.Find(selector).Children().Eq(j).Text()
-					break
 				case 4:
 					d.Ground = gq.Find(selector).Children().Eq(j).Text()
-					break
 				case 5:
 					d.MatchDate = gq.Find(selector).Children().Eq(j).Text()
-					break
 				case 6:
 					d.Scorecard = gq.Find(selector).Children().Eq(j).Text()
-					break
 				}
 			}
 			data = append(data, d)
 		}
 	})
 
-	c.Visit(url)
+	err := c.Visit(url)
+	if err != nil {
+		fmt.Printf("ERROR: Cannot visit %s", url)
+		return
+	}
 	c.Wait()
 
 	var w Wrap[T20MatchResult]
 	w.Data = data
 
-	_, err := w.Save(GetPath(url), JSON)
+	_, err = w.Save(GetPath(url), JSON)
 	if err != nil {
 		fmt.Println(err)
 	}
