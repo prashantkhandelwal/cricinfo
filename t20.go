@@ -16,7 +16,19 @@ type T20MatchResult struct {
 	Scorecard string
 }
 
-var data = []T20MatchResult{}
+type T20HighestTotals struct {
+	Team       string
+	Score      string
+	Overs      float64
+	RunRate    float64
+	Innings    int
+	Opposition string
+	Ground     string
+	MatchDate  string
+	ScoreCard  string
+}
+
+var data_matchResults = []T20MatchResult{}
 var d = T20MatchResult{}
 
 func (t *T20MatchResult) DownloadMatchResults(c *colly.Collector, url string) {
@@ -46,7 +58,7 @@ func (t *T20MatchResult) DownloadMatchResults(c *colly.Collector, url string) {
 					d.Scorecard = gq.Find(selector).Children().Eq(j).Text()
 				}
 			}
-			data = append(data, d)
+			data_matchResults = append(data_matchResults, d)
 		}
 	})
 
@@ -58,19 +70,19 @@ func (t *T20MatchResult) DownloadMatchResults(c *colly.Collector, url string) {
 	c.Wait()
 
 	var w Wrap[T20MatchResult]
-	w.Data = data
+	w.Data = data_matchResults
 
 	_, err = w.Save(GetPath(url), JSON)
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	data = []T20MatchResult{}
+	data_matchResults = []T20MatchResult{}
 }
 
 // TODO: make this function generic
 func (t *T20MatchResult) ToString() {
-	for _, d := range data {
+	for _, d := range data_matchResults {
 		fmt.Println("----------------------------------")
 		fmt.Println("Team A : " + d.TeamA)
 		fmt.Println("Team B : " + d.TeamB)

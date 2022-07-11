@@ -13,7 +13,7 @@ type Wrap[T any] struct {
 	Data []T
 }
 
-func (w *Wrap[T]) Save(path string, format Format) (bool, error) {
+func (w *Wrap[_]) Save(path string, format Format) (bool, error) {
 
 	if len(strings.TrimSpace(path)) == 0 {
 		return false, errors.New("Parameter: path cannot be empty")

@@ -28,6 +28,9 @@ var (
 		"T20_2020_MATCHRESULTS": "https://stats.espncricinfo.com/ci/engine/records/team/match_results.html?id=13533;type=tournament",
 		"T20_2021_MATCHRESULTS": "https://stats.espncricinfo.com/ci/engine/records/team/match_results.html?id=13840;type=tournament",
 		"T20_2022_MATCHRESULTS": "https://stats.espncricinfo.com/ci/engine/records/team/match_results.html?id=14452;type=tournament",
+
+		//Highest TotalS
+		//"T20_2008_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=3519;type=tournament",
 	}
 )
 
@@ -45,7 +48,7 @@ func GetPath(url string) string {
 	key := GetMapKey(T20_URLS, url)
 	if len(strings.TrimSpace(key)) > 0 {
 		arr := strings.Split(key, "_")
-		s := fmt.Sprintf("%s\\%s-%s.json", arr[0], strings.Replace(strings.ToLower(arr[2]), "_", "", 1), arr[1])
+		s := fmt.Sprintf("%s\\%s\\%s.json", arr[0], arr[1], strings.Replace(strings.ToLower(arr[2]), "_", "", 1))
 		return s
 	}
 
