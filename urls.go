@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	T20_URLS = map[string]string{
+	T20_MATCH_RESULTS_URLS = map[string]string{
 
 		// T20 2008 Main Page
 		//"T20_2008_MAIN": "https://www.espncricinfo.com/ci/engine/series/313494.html?view=records",
@@ -28,9 +28,11 @@ var (
 		"T20_2020_MATCHRESULTS": "https://stats.espncricinfo.com/ci/engine/records/team/match_results.html?id=13533;type=tournament",
 		"T20_2021_MATCHRESULTS": "https://stats.espncricinfo.com/ci/engine/records/team/match_results.html?id=13840;type=tournament",
 		"T20_2022_MATCHRESULTS": "https://stats.espncricinfo.com/ci/engine/records/team/match_results.html?id=14452;type=tournament",
+	}
 
+	T20_HIGHEST_TOTALS_URLS = map[string]string{
 		//Highest TotalS
-		//"T20_2008_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=3519;type=tournament",
+		"T20_2008_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=3519;type=tournament",
 	}
 )
 
@@ -45,7 +47,7 @@ func GetMapKey(m map[string]string, value string) (key string) {
 }
 
 func GetPath(url string) string {
-	key := GetMapKey(T20_URLS, url)
+	key := GetMapKey(T20_MATCH_RESULTS_URLS, url)
 	if len(strings.TrimSpace(key)) > 0 {
 		arr := strings.Split(key, "_")
 		s := fmt.Sprintf("%s\\%s\\%s.json", arr[0], arr[1], strings.Replace(strings.ToLower(arr[2]), "_", "", 1))
