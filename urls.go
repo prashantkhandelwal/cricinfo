@@ -30,9 +30,24 @@ var (
 		"T20_2022_MATCHRESULTS": "https://stats.espncricinfo.com/ci/engine/records/team/match_results.html?id=14452;type=tournament",
 	}
 
+	// Highest TotalS
 	T20_HIGHEST_TOTALS_URLS = map[string]string{
-		//Highest TotalS
+
 		"T20_2008_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=3519;type=tournament",
+		"T20_2009_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=4801;type=tournament",
+		"T20_2010_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=5319;type=tournament",
+		"T20_2011_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=5969;type=tournament",
+		"T20_2012_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=6680;type=tournament",
+		"T20_2013_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=7720;type=tournament",
+		"T20_2014_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=8827;type=tournament",
+		"T20_2015_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=9657;type=tournament",
+		"T20_2016_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=11001;type=tournament",
+		"T20_2017_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=11701;type=tournament",
+		"T20_2018_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=12210;type=tournament",
+		"T20_2019_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=12741;type=tournament",
+		"T20_2020_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=13533;type=tournament",
+		"T20_2021_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=13840;type=tournament",
+		"T20_2022_HIGHESTTOTALS": "https://stats.espncricinfo.com/ci/engine/records/team/highest_innings_totals.html?id=14452;type=tournament",
 	}
 )
 
