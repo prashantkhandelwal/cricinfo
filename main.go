@@ -14,11 +14,19 @@ func NewScrapper() *colly.Collector {
 
 func main() {
 
+	c := NewScrapper()
+
 	// Initialize Colly
 	t20_downloader := c.Clone()
 	t20matchresult := T20MatchResult{}
 
 	for _, m := range T20_MATCH_RESULTS_URLS {
 		t20matchresult.DownloadMatchResults(t20_downloader, m)
+	}
+
+	t20highesttotals := T20HighestTotals{}
+
+	for _, m := range T20_HIGHEST_TOTALS_URLS {
+		t20highesttotals.DownloadHighestTotals(t20_downloader, m)
 	}
 }

@@ -61,8 +61,8 @@ func GetMapKey(m map[string]string, value string) (key string) {
 	return
 }
 
-func GetPath(url string) string {
-	key := GetMapKey(T20_MATCH_RESULTS_URLS, url)
+func GetPath(m map[string]string, url string) string {
+	key := GetMapKey(m, url)
 	if len(strings.TrimSpace(key)) > 0 {
 		arr := strings.Split(key, "_")
 		s := fmt.Sprintf("%s\\%s\\%s.json", arr[0], arr[1], strings.Replace(strings.ToLower(arr[2]), "_", "", 1))
